@@ -6,16 +6,12 @@ import win32api
 import win32con
 import ait
 
-path = 'D:\\important shit\\Python shit\\Aimlab_tf\\training_dataset\\classifier\\cascade.xml' # cascade path
+path = '' # cascade path
 obj = 'target' # detected obj name (for display)
 
 # cascade values for tweaking
 scale = 2 # lower scale = better detection = lower performance
 min_neig = 4 # lower minimum neighbour = more detection (might be false detection)
-
-# auto aim values
-sens_multiplier = 1
-
 
 cascade = cv2.CascadeClassifier(path)
 
@@ -35,7 +31,7 @@ while True:
     apx = (detection[0][0] + (detection[0][2] / 2)) - 960
     apy = (detection[0][1] + (detection[0][3] / 2)) - 540
 
-    # # display detection
+    # # display detection (uncomment for window that displays what the AI is predicting with bounding boxes)
     # for (x, y, w, h) in detection:
     #     print(x, y, w, h)
     #     cv2.rectangle(img_array, (x, y), (x + w, y + h), (0, 255, 0), 5)
